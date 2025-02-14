@@ -16,7 +16,7 @@
 }
 
 .header {
-    padding-top: 20px;
+    padding-top: 0 auto;
     text-align: center;
     color: #333;
 }
