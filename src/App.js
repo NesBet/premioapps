@@ -230,13 +230,13 @@ function App() {
   return (
     <div id="home" className="container">
       <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {/* <div>
+      <div>
         <header id="home" className="header">
           <p className="header-tagline">
             Discover and download amazing mobile applications
           </p>
         </header>
-      </div> */}
+      </div>
       <div className="card-container">
         {filteredApks.length > 0 ? (
           filteredApks.map((apk) => (
