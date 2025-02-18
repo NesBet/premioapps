@@ -262,5 +262,5 @@
 #about,
 #contact,
 #donate {
-    scroll-margin-top: 80px; /* This ensures the section isn't hidden behind the navbar when scrolled to */
+    scroll-margin-top: 60px;
 }
