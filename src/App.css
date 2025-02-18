@@ -108,8 +108,8 @@
 
 .contact-section {
     text-align: center;
-    width: 100%; /* Make sure the section takes up all available width */
-    max-width: 250px; /* Match the card width */
+    width: 100%;
+    max-width: 250px;
     box-sizing: border-box;
 }
 
