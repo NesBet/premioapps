@@ -1,7 +1,7 @@
 .side-by-side-container {
     border: 5px solid #333; /* Thick border */
     border-radius: 10px; /* Rounded corners for a polished look */
-    padding: 20px; /* Space inside the border */
+    padding: 20px;
     margin-top: 40px; /* Space above the container */
     background-color: black; /* Light background for contrast */
 }
