@@ -187,7 +187,7 @@
 /* Fixed width for contact and donation sections */
 .contact-section,
 .donation-section {
-    width: 100%;
+    width: 110%;
     max-width: 250px; /* Match card width */
     box-sizing: border-box; /* Include padding in width calculation */
 }
@@ -222,7 +222,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
 }
 
 .donation-form input {
@@ -232,7 +232,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
 }
 
 .donate-button {
@@ -246,7 +246,7 @@
     transition: background-color 0.3s ease;
     width: 100%;
     max-width: 200px;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
 }
 
 .donate-button:disabled {
