@@ -220,7 +220,6 @@ function App() {
           curated selection ensures you get the best apps for your needs.
         </p>
         <div>© 2025 NesHacks. All Rights Reserved.</div>
-        <div>
         <a
             href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
             target="_blank"
@@ -229,7 +228,6 @@ function App() {
         >
             <FaWhatsapp size={30} color="green" />
         </a>
-        </div>
       </footer>
     </div>
   );
