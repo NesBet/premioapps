@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import "./App.css";
 import APKCard from "./components/APKCard";
 import emailjs from 'emailjs-com';
@@ -219,6 +220,14 @@ function App() {
           curated selection ensures you get the best apps for your needs.
         </p>
         <div>© 2025 NesHacks Apps. All Rights Reserved.</div>
+        <a
+            href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-icon"
+        >
+            <FaWhatsapp size={30} color="green" />
+        </a>
       </footer>
     </div>
   );
