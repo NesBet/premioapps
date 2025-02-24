@@ -105,9 +105,9 @@ function App() {
     e.preventDefault();
     const suffix = "\n\n\n (Message was sent from Neshacks APK Store)";
     const fullMessage = `${message}${suffix}`;
-    const serviceID = 'service_af4nuvt';
-    const templateID = 'template_da4ggdl';
-    const userID = 'B7ob43yQQVno5LqcW';
+    const serviceID = ''; // Your service ID
+    const templateID = ''; // Your template ID
+    const userID = ''; // Your user ID
     emailjs.send(serviceID, templateID, {
       name: name,
       email: email,
