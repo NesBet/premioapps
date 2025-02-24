@@ -113,9 +113,9 @@ function App() {
     e.preventDefault();
     const suffix = "\n\n\n (Message was sent from Neshacks APK Store)";
     const fullMessage = `${message}${suffix}`;
-    const serviceID = ''; // Your service ID
-    const templateID = ''; // Your template ID
-    const userID = ''; // Your user ID
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userID = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
     emailjs.send(serviceID, templateID, {
       name: name,
       email: email,
