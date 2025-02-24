@@ -40,5 +40,5 @@ premioapps
 ```
 
 ## Developer:
-Premioapps was developed by Neshacks which is a leading tech hub for all hacks when it comes to what can be done using technology.
-The developer is Nehemiah Kibet and you can find him by clicking [here](https://neshkibet.vercel.app).
+Premioapps was developed by Neshacks, a technology innovation hub specializing in software development and system optimization solutions.
+The project was led by Nehemiah Kibet, a professional software developer whose portfolio can be viewed at [here](https://neshkibet.vercel.app).
