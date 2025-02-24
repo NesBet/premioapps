@@ -12,6 +12,7 @@ import { FaSnapchat } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaFilm } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa";
+import { MdLiveTv } from "react-icons/md";
 
 function APKCard({ apk, onDownload }) {
   // Map app names to React Icons
@@ -38,7 +39,9 @@ function APKCard({ apk, onDownload }) {
       case "netflix":
         return <FaFilm size={48} />;
       case "shazam":
-        return <FaMicrophone size={48} />;          
+        return <FaMicrophone size={48} />;
+        case "hd streamz":
+        return <MdLiveTv size={48} />;
       default:
         return null;
     }
