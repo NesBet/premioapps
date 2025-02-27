@@ -97,38 +97,87 @@ function App() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [messageError, setMessageError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Handle APK download using Google Drive direct link
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      setEmailError("Email is required");
+      return false;
+    }
+    if (!regex.test(email)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validateName = (name) => {
+    if (name.length < 3) {
+      setNameError("Name must be at least 3 characters long");
+      return false;
+    }
+    setNameError("");
+    return true;
+  };
+
+  const validateMessage = (message) => {
+    if (message.length < 10) {
+      setMessageError("Message must be at least 10 characters long");
+      return false;
+    }
+    setMessageError("");
+    return true;
+  };
+
   const isValidFileId = (fileId) => /^[a-zA-Z0-9_-]+$/.test(fileId);
+
   const handleDownload = (apk) => {
     if (!isValidFileId(apk.fileId)) {
-    console.error("Invalid file ID detected.");
-    return;
+      console.error("Invalid file ID detected.");
+      return;
     }
     const googleDriveUrl = `https://drive.google.com/uc?export=download&id=${apk.fileId}&confirm=t`;
     window.open(googleDriveUrl, "_blank");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isEmailValid = validateEmail(email);
+    const isNameValid = validateName(name);
+    const isMessageValid = validateMessage(message);
+
+    if (!isEmailValid || !isNameValid || !isMessageValid) {
+      return;
+    }
+
+    setIsLoading(true);
     const suffix = "\n\n\n (Message was sent from Neshacks APK Store)";
     const fullMessage = `${message}${suffix}`;
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const userID = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-    emailjs.send(serviceID, templateID, {
-      name: name,
-      email: email,
-      message: fullMessage,
-    }, userID)
-      .then((response) => {
-        alert('Message sent successfully!');
-        setName("");
-        setEmail("");
-        setMessage("");
-      }, (error) => {
-        alert('Failed to send the message, please try again.');
-      });
+
+    try {
+      await emailjs.send(serviceID, templateID, {
+        name: name,
+        email: email,
+        message: fullMessage,
+      }, userID);
+      alert('Message sent successfully!');
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      alert('Failed to send the message, please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getPayPalLink = () => {
@@ -149,15 +198,15 @@ function App() {
         <h1>NESHACKS APKS STORE</h1>
         <p>Discover and download amazing mobile applications</p>
       </header>
+
       <div className="card-container">
         {apkData.map((apk) => (
           <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
         ))}
       </div>
-      {/* Wrapped Donate and Contact Sections */}
+
       <div className="side-by-side-container">
         <div className="side-by-side-sections">
-          {/* Donation Section */}
           <section className="card donation-section">
             <h2>Support Us</h2>
             <p>If you find our service helpful, consider supporting us with a donation.</p>
@@ -182,44 +231,70 @@ function App() {
               </a>
             </div>
           </section>
-          {/* Contact Section */}
+
           <section className="card contact-section">
             <h2>Contact Us</h2>
             <p>Have questions or suggestions? Reach out to us!</p>
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="input-field"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="input-field"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <textarea
-                placeholder="Your Message"
-                className="textarea-field"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
+              <div className="input-container">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className={`input-field ${nameError ? 'error' : ''}`}
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    validateName(e.target.value);
+                  }}
+                  required
+                />
+                {nameError && <span className="error-message">{nameError}</span>}
+              </div>
+
+              <div className="input-container">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className={`input-field ${emailError ? 'error' : ''}`}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    validateEmail(e.target.value);
+                  }}
+                  required
+                />
+                {emailError && <span className="error-message">{emailError}</span>}
+              </div>
+
+              <div className="input-container">
+                <textarea
+                  placeholder="Your Message"
+                  className={`textarea-field ${messageError ? 'error' : ''}`}
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    validateMessage(e.target.value);
+                  }}
+                />
+                {messageError && <span className="error-message">{messageError}</span>}
+              </div>
+
               <button
                 className="download-button"
                 type="submit"
-                disabled={!name || !email || !message}
+                disabled={!name || !email || !message || isLoading}
               >
-                Send Message
+                {isLoading ? (
+                  <div className="spinner"></div>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </section>
         </div>
       </div>
+
       <footer className="footer">
         <h3>About Neshacks apk store</h3>
         <p>
@@ -228,12 +303,12 @@ function App() {
         </p>
         <div>© 2025 NesHacks. All Rights Reserved.</div>
         <a
-            href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-icon"
+          href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-icon"
         >
-            <FaWhatsapp size={30} color="green" />
+          <FaWhatsapp size={30} color="green" />
         </a>
       </footer>
     </div>

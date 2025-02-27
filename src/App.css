@@ -1,169 +1,208 @@
 .side-by-side-container {
-  border: 5px solid #333; /* Thick border */
-  border-radius: 10px; /* Rounded corners for a polished look */
-  padding: 20px; /* Space inside the border */
-  margin-top: 40px; /* Space above the container */
-  background-color: black; /* Light background for contrast */
+    border: 5px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: black;
 }
 
 .container {
-  font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background: linear-gradient(135deg, #e6f7ff 0%, #d9d9d9 100%);
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #e6f7ff 0%, #d9d9d9 100%);
 }
 
 .header {
-  text-align: center;
-  color: #333;
-  margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
 }
 
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .card {
-  background: grey;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: grey;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 20px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
-  font-size: 48px;
-  margin-bottom: 10px;
+    font-size: 48px;
+    margin-bottom: 10px;
 }
 
 .download-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .contact-section {
-  text-align: center;
+    text-align: center;
 }
 
 .contact-section form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .input-field,
 .textarea-field {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%; /* Adjusted to fit within the card */
-  max-width: 300px; /* Ensures it doesn't overflow */
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error {
+    border-color: red !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ffffff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .download-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .download-button:disabled {
-  background-color: black;
-  cursor: not-allowed;
+    background-color: black;
+    cursor: not-allowed;
 }
 
 .footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-/* Side-by-Side Sections */
 .side-by-side-sections {
-  display: flex;
-  justify-content: center; /* Center the sections horizontally */
-  gap: 20px;
-  margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
 }
 
-/* Media Query for Responsive Design */
 @media (max-width: 768px) {
-  .side-by-side-sections {
-    flex-direction: column;
-    align-items: center;
-  }
+    .side-by-side-sections {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .contact-section,
-  .donation-section {
-    width: 100%;
-    max-width: 400px;
-  }
+    .contact-section,
+    .donation-section {
+        width: 100%;
+        max-width: 400px;
+    }
 
-  .input-field,
-  .textarea-field {
-    width: 100%;
-  }
+    .input-field,
+    .textarea-field {
+        width: 100%;
+    }
 }
 
-/* Donation Section */
 .donation-section {
-  text-align: center;
+    text-align: center;
 }
 
 .donation-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .donation-form input {
-  padding: 10px;
-  width: 100%;
-  max-width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 .donate-button {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .donate-button:disabled {
-  background-color: green;
-  cursor: not-allowed;
+    background-color: green;
+    cursor: not-allowed;
 }
 
 .donate-button:hover:not(:disabled) {
-  background-color: #005f9e;
+    background-color: #005f9e;
+}
+
+.input-field.error,
+.textarea-field.error {
+    border: 1px solid red;
 }
