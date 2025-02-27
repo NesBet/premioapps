@@ -77,6 +77,9 @@
 
 .contact-section {
     text-align: center;
+    width: 100%; /* Make sure the section takes up all available width */
+    max-width: 250px; /* Match the card width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .contact-section form {
@@ -84,6 +87,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Form validation styles */
@@ -91,6 +95,7 @@
     width: 100%;
     margin-bottom: 15px;
     position: relative;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .input-error {
@@ -117,6 +122,7 @@
     transition:
         border 0.3s,
         background-color 0.3s;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .input-field:focus,
@@ -147,6 +153,14 @@
     margin-top: 50px;
 }
 
+/* Fixed width for contact and donation sections */
+.contact-section,
+.donation-section {
+    width: 100%;
+    max-width: 250px; /* Match card width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
 /* Media Query for Responsive Design */
 @media (max-width: 768px) {
     .side-by-side-sections {
@@ -157,7 +171,7 @@
     .contact-section,
     .donation-section {
         width: 100%;
-        max-width: 400px;
+        max-width: 300px; /* Slightly wider on mobile for better readability */
     }
 
     .input-field,
@@ -176,6 +190,8 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .donation-form input {
@@ -185,6 +201,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .donate-button {
@@ -196,6 +213,9 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .donate-button:disabled {
