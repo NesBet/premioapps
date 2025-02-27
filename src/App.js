@@ -98,6 +98,14 @@ function App() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
+
+  // Validation functions
+  const validateName = (name) => name.trim().length >= 3;
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateMessage = (message) => message.trim().length >= 10;
 
   // Handle APK download using Google Drive direct link
   const isValidFileId = (fileId) => /^[a-zA-Z0-9_-]+$/.test(fileId);
@@ -110,8 +118,49 @@ function App() {
     window.open(googleDriveUrl, "_blank");
   };
 
+  // Add validation handlers for form inputs
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    if (value.trim() && !validateName(value)) {
+      setNameError("Name must be at least 3 characters");
+    } else {
+      setNameError("");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (value.trim() && !validateEmail(value)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handleMessageChange = (e) => {
+    const value = e.target.value;
+    setMessage(value);
+    if (value.trim() && !validateMessage(value)) {
+      setMessageError("Message must be at least 10 characters");
+    } else {
+      setMessageError("");
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Final validation check before submission
+    if (
+      !validateName(name) ||
+      !validateEmail(email) ||
+      !validateMessage(message)
+    ) {
+      return;
+    }
+
     const suffix = "\n\n\n (Message was sent from Neshacks APK Store)";
     const fullMessage = `${message}${suffix}`;
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -134,6 +183,9 @@ function App() {
           setName("");
           setEmail("");
           setMessage("");
+          setNameError("");
+          setEmailError("");
+          setMessageError("");
         },
         (error) => {
           alert("Failed to send the message, please try again.");
@@ -152,6 +204,10 @@ function App() {
       purpose,
     )}`;
   };
+
+  // Check if form is valid
+  const isFormValid =
+    validateName(name) && validateEmail(email) && validateMessage(message);
 
   return (
     <div className="container">
@@ -200,32 +256,49 @@ function App() {
             <h2>Contact Us</h2>
             <p>Have questions or suggestions? Reach out to us!</p>
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="input-field"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="input-field"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <textarea
-                placeholder="Your Message"
-                className="textarea-field"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
+              <div className="input-group">
+                <input
+                  type="text"
+                  placeholder="Your Name (min 3 characters)"
+                  className={`input-field ${nameError ? "input-error" : ""}`}
+                  value={name}
+                  onChange={handleNameChange}
+                  required
+                />
+                {nameError && <div className="error-message">{nameError}</div>}
+              </div>
+
+              <div className="input-group">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className={`input-field ${emailError ? "input-error" : ""}`}
+                  value={email}
+                  onChange={handleEmailChange}
+                  required
+                />
+                {emailError && (
+                  <div className="error-message">{emailError}</div>
+                )}
+              </div>
+
+              <div className="input-group">
+                <textarea
+                  placeholder="Your Message (min 10 characters)"
+                  className={`textarea-field ${messageError ? "input-error" : ""}`}
+                  value={message}
+                  onChange={handleMessageChange}
+                  required
+                />
+                {messageError && (
+                  <div className="error-message">{messageError}</div>
+                )}
+              </div>
+
               <button
                 className="download-button"
                 type="submit"
-                disabled={!name || !email || !message}
+                disabled={!isFormValid}
               >
                 Send Message
               </button>
