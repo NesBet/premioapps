@@ -101,6 +101,7 @@ function App() {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [isSending, setIsSending] = useState(false); // State to track message sending status
 
   // Validation functions
   const validateName = (name) => name.trim().length >= 3;
@@ -161,6 +162,9 @@ function App() {
       return;
     }
 
+    // Set loading state to true
+    setIsSending(true);
+
     const suffix = "\n\n\n (Message was sent from Neshacks APK Store)";
     const fullMessage = `${message}${suffix}`;
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -179,6 +183,7 @@ function App() {
       )
       .then(
         (response) => {
+          setIsSending(false); // Set loading state to false
           alert("Message sent successfully!");
           setName("");
           setEmail("");
@@ -188,6 +193,7 @@ function App() {
           setMessageError("");
         },
         (error) => {
+          setIsSending(false); // Set loading state to false even in case of error
           alert("Failed to send the message, please try again.");
         },
       );
@@ -264,6 +270,7 @@ function App() {
                   value={name}
                   onChange={handleNameChange}
                   required
+                  disabled={isSending}
                 />
                 {nameError && <div className="error-message">{nameError}</div>}
               </div>
@@ -276,6 +283,7 @@ function App() {
                   value={email}
                   onChange={handleEmailChange}
                   required
+                  disabled={isSending}
                 />
                 {emailError && (
                   <div className="error-message">{emailError}</div>
@@ -289,6 +297,7 @@ function App() {
                   value={message}
                   onChange={handleMessageChange}
                   required
+                  disabled={isSending}
                 />
                 {messageError && (
                   <div className="error-message">{messageError}</div>
@@ -298,9 +307,15 @@ function App() {
               <button
                 className="download-button"
                 type="submit"
-                disabled={!isFormValid}
+                disabled={!isFormValid || isSending}
               >
-                Send Message
+                {isSending ? (
+                  <span className="button-with-spinner">
+                    <ImSpinner8 className="spinner" /> Sending...
+                  </span>
+                ) : (
+                  "Send Message"
+                )}
               </button>
             </form>
           </section>

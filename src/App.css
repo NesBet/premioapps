@@ -75,6 +75,29 @@
     cursor: not-allowed;
 }
 
+/* Spinner styles */
+.spinner {
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.button-with-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .contact-section {
     text-align: center;
     width: 100%; /* Make sure the section takes up all available width */
