@@ -1,10 +1,11 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import "./Navbar.css"; // We'll create this CSS file
+import "./Navbar.css";
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   // Function to handle navigation (scrolling to sections)
-  const scrollToSection = (id) => {
+  const scrollToSection = (e, id) => {
+    e.preventDefault(); // Prevent default behavior
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -18,17 +19,17 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
           <h3>NesHacks</h3>
         </div>
         <div className="navbar-links">
-          <a href="#" onClick={() => scrollToSection("home")}>
+          <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
             Home
           </a>
-          <a href="#" onClick={() => scrollToSection("about")}>
-            About
-          </a>
-          <a href="#" onClick={() => scrollToSection("contact")}>
+          <a href="#contact" onClick={(e) => scrollToSection(e, "contact")}>
             Contact
           </a>
-          <a href="#" onClick={() => scrollToSection("donate")}>
+          <a href="#donate" onClick={(e) => scrollToSection(e, "donate")}>
             Donate
+          </a>
+          <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
+            About
           </a>
         </div>
         <div className="navbar-search">
