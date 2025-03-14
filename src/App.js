@@ -4,6 +4,7 @@ import { ImSpinner8 } from "react-icons/im";
 import "./App.css";
 import APKCard from "./components/APKCard";
 import emailjs from "emailjs-com";
+import Navbar from "./components/Navbar";
 
 const apkData = [
   {
@@ -16,7 +17,8 @@ const apkData = [
   {
     id: 2,
     name: "Spotube",
-    description: "Stream music and podcasts. A briiliant open-source alternative to Spotify.",
+    description:
+      "Stream music and podcasts. A briiliant open-source alternative to Spotify.",
     fileSize: "129.2 MB",
     fileId: "1k6marDPrn_95qnvg_J83bXiFgfiVy63u",
   },
@@ -102,9 +104,17 @@ function App() {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
-  const [isSending, setIsSending] = useState(false); // State to track message sending status
+  const [isSending, setIsSending] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Validation functions
+  const filteredApks = searchTerm
+    ? apkData.filter(
+        (apk) =>
+          apk.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          apk.description.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+    : apkData;
   const validateName = (name) => name.trim().length >= 3;
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validateMessage = (message) => message.trim().length >= 10;
@@ -218,7 +228,7 @@ function App() {
 
   return (
     <div className="container">
-      <header className="header">
+      <header id="home" className="header">
         <h1>NESHACKS APKS STORE</h1>
         <p>Discover and download amazing mobile applications</p>
       </header>
@@ -231,7 +241,7 @@ function App() {
       <div className="side-by-side-container">
         <div className="side-by-side-sections">
           {/* Donation Section */}
-          <section className="card donation-section">
+          <section id="donate" className="card donation-section">
             <h2>Support Us</h2>
             <p>
               If you find our service helpful, consider supporting us with a
@@ -259,7 +269,7 @@ function App() {
             </div>
           </section>
           {/* Contact Section */}
-          <section className="card contact-section">
+          <section id="contact" className="card contact-section">
             <h2>Contact Us</h2>
             <p>Have questions or suggestions? Reach out to us!</p>
             <form onSubmit={handleSubmit}>
@@ -322,7 +332,7 @@ function App() {
           </section>
         </div>
       </div>
-      <footer className="footer">
+      <footer id="about" className="footer">
         <h3>About Neshacks apk store</h3>
         <p>
           We are dedicated to providing high-quality mobile applications that
