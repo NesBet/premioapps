@@ -5,6 +5,7 @@ import "./App.css";
 import APKCard from "./components/APKCard";
 import emailjs from "emailjs-com";
 import Navbar from "./components/Navbar";
+import NoResultsFound from "./components/NoResultsFound";
 
 const apkData = [
   {
@@ -236,14 +237,16 @@ function App() {
         </header>
       </div>
       <div className="card-container">
-        {filteredApks.map((apk) => (
-          <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
-        ))}
-      </div>
-      <div className="card-container">
-        {apkData.map((apk) => (
-          <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
-        ))}
+        {filteredApks.length > 0 ? (
+          filteredApks.map((apk) => (
+            <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
+          ))
+        ) : (
+          <NoResultsFound
+            searchTerm={searchTerm}
+            resetSearch={() => setSearchTerm("")}
+          />
+        )}
       </div>
       {/* Wrapped Donate and Contact Sections */}
       <div className="side-by-side-container">
