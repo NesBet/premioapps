@@ -15,10 +15,10 @@ const apkData = [
   },
   {
     id: 2,
-    name: "Spotify",
-    description: "Stream music and podcasts. Premium unlocked, AMOLED.",
-    fileSize: "93.2 MB",
-    fileId: "1sczZx1oUY_g8fwZtdACSyjLbMbqDC4vP",
+    name: "Spotube",
+    description: "Stream music and podcasts. A briiliant open-source alternative to Spotify.",
+    fileSize: "129.2 MB",
+    fileId: "1k6marDPrn_95qnvg_J83bXiFgfiVy63u",
   },
   {
     id: 3,
