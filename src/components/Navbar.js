@@ -16,7 +16,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <h3>NesHacks</h3>
+          <h3>NESHACKS</h3>
         </div>
         <div className="navbar-links">
           <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
