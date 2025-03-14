@@ -20,7 +20,7 @@ function APKCard({ apk, onDownload }) {
     switch (appName.toLowerCase()) {
       case "whatsapp":
         return <FaWhatsapp size={48} />;
-      case "spotify":
+      case "spotube":
         return <FaSpotify size={48} />;
       case "tiktok":
         return <FaTiktok size={48} />;
