@@ -228,10 +228,16 @@ function App() {
 
   return (
     <div className="container">
+      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <header id="home" className="header">
         <h1>NESHACKS APKS STORE</h1>
         <p>Discover and download amazing mobile applications</p>
       </header>
+      <div className="card-container">
+        {filteredApks.map((apk) => (
+          <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
+        ))}
+      </div>
       <div className="card-container">
         {apkData.map((apk) => (
           <APKCard key={apk.id} apk={apk} onDownload={handleDownload} />
