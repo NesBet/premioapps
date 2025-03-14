@@ -231,7 +231,6 @@ function App() {
       <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div>
         <header id="home" className="header">
-          <h1>NESHACKS APKS STORE</h1>
           <p>Discover and download amazing mobile applications</p>
         </header>
       </div>
