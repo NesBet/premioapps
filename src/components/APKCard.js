@@ -26,7 +26,7 @@ function APKCard({ apk, onDownload }) {
         return <FaTiktok size={48} />;
       case "instagram":
         return <FaInstagram size={48} />;
-      case "twitter":
+      case "x":
         return <FaTwitter size={48} />;
       case "wps office":
         return <FaFileWord size={48} />;
