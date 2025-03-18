@@ -7,7 +7,7 @@
 }
 
 .container {
-    padding-top: 120px;
+    padding-top: 0px;
     font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 0 auto;
@@ -16,7 +16,7 @@
 }
 
 .header {
-    padding-top: 40px;
+    padding-top: 120px;
     text-align: center;
     color: #333;
 }
@@ -200,6 +200,8 @@
     .side-by-side-sections {
         flex-direction: column;
         align-items: center;
+        margin-top: 10px;
+        gap: 15px;
     }
 
     .contact-section,
@@ -211,6 +213,37 @@
     .input-field,
     .textarea-field {
         width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding-top: 80px;
+    }
+
+    .header-tagline {
+        font-size: 1.1rem;
+        margin: 10px 0 20px 0;
+    }
+
+    .card-container {
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding-top: 70px;
+    }
+
+    .header-tagline {
+        font-size: 1rem;
+        margin: 5px 0 15px 0;
     }
 }
 

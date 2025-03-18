@@ -1,51 +1,80 @@
 import React from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = ({ searchTerm, setSearchTerm }) => {
-  // Function to handle navigation (scrolling to sections)
-  const scrollToSection = (e, id) => {
-    e.preventDefault(); // Prevent default behavior
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+function Navbar({ searchTerm, setSearchTerm }) {
+  const [isSticky, setIsSticky] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Handle scroll effect for sticky navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <h3>NESHACKS</h3>
+        <div className="navbar-brand">NesHacks APK Store</div>
+
+        <div className="hamburger-menu" onClick={toggleMobileMenu}>
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
-        <div className="navbar-links">
-          <a href="#home" onClick={(e) => scrollToSection(e, "home")}>
-            Home
-          </a>
-          <a href="#contact" onClick={(e) => scrollToSection(e, "contact")}>
-            Contact
-          </a>
-          <a href="#donate" onClick={(e) => scrollToSection(e, "donate")}>
-            Donate
-          </a>
-          <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
-            About
-          </a>
-        </div>
-        <div className="navbar-search">
-          <div className="search-input-container">
+
+        <div
+          className={`search-container ${mobileMenuOpen ? "mobile-search-visible" : ""}`}
+        >
+          <div className="search-wrapper">
             <input
               type="text"
-              placeholder="Search APKs..."
+              placeholder="Search apps..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
             />
             <FaSearch className="search-icon" />
           </div>
         </div>
+
+        <ul className={`nav-links ${mobileMenuOpen ? "mobile-menu-open" : ""}`}>
+          <li>
+            <a href="#home" onClick={() => setMobileMenuOpen(false)}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#donate" onClick={() => setMobileMenuOpen(false)}>
+              Donate
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+              About
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
