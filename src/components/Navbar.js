@@ -29,49 +29,55 @@ function Navbar({ searchTerm, setSearchTerm }) {
   return (
     <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
       <div className="navbar-container">
-        <div className="navbar-brand">NesHacks APK Store</div>
-
-        <div className="hamburger-menu" onClick={toggleMobileMenu}>
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className="navbar-left">
+          <div className="navbar-brand">NesHacks APK Store</div>
         </div>
 
-        <div
-          className={`search-container ${mobileMenuOpen ? "mobile-search-visible" : ""}`}
-        >
-          <div className="search-wrapper">
-            <input
-              type="text"
-              placeholder="Search apps..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-            <FaSearch className="search-icon" />
+        <div className="navbar-center">
+          <div className="search-container">
+            <div className="search-wrapper">
+              <input
+                type="text"
+                placeholder="Search apps..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+              <FaSearch className="search-icon" />
+            </div>
           </div>
         </div>
 
-        <ul className={`nav-links ${mobileMenuOpen ? "mobile-menu-open" : ""}`}>
-          <li>
-            <a href="#home" onClick={() => setMobileMenuOpen(false)}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#donate" onClick={() => setMobileMenuOpen(false)}>
-              Donate
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
-              Contact
-            </a>
-          </li>
-          <li>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)}>
-              About
-            </a>
-          </li>
-        </ul>
+        <div className="navbar-right">
+          <div className="hamburger-menu" onClick={toggleMobileMenu}>
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+
+          <ul
+            className={`nav-links ${mobileMenuOpen ? "mobile-menu-open" : ""}`}
+          >
+            <li>
+              <a href="#home" onClick={() => setMobileMenuOpen(false)}>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#donate" onClick={() => setMobileMenuOpen(false)}>
+                Donate
+              </a>
+            </li>
+            <li>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+                About
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

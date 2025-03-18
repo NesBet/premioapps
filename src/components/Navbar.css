@@ -24,6 +24,13 @@
     padding: 0 20px;
 }
 
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -52,8 +59,7 @@
 }
 
 .search-container {
-    position: relative;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 .search-wrapper {
@@ -86,17 +92,45 @@
 
 /* Media queries for responsive design */
 @media (max-width: 992px) {
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+
+    .navbar-left {
+        flex: 1;
+    }
+
+    .navbar-center {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
     .nav-links {
         position: fixed;
         flex-direction: column;
         background-color: #333;
         top: 0;
         right: -100%;
-        height: 100vh;
+        height: 100%;
         width: 250px;
-        padding-top: 70px;
+        padding-top: 60px;
         transition: right 0.3s ease;
         align-items: center;
+        overflow-y: auto;
     }
 
     .nav-links.mobile-menu-open {
@@ -110,35 +144,29 @@
     .hamburger-menu {
         display: block;
     }
-
-    .search-container {
-        order: 3;
-        margin-right: 0;
-        display: none;
-    }
-
-    .mobile-search-visible {
-        display: block;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: #333;
-        z-index: 999;
-    }
-
-    .search-wrapper {
-        width: 100%;
-    }
-
-    .search-input {
-        width: 100%;
-    }
 }
 
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 1.2rem;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar.sticky {
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-center {
+        margin-top: 8px;
+    }
+
+    .search-input {
+        padding: 6px;
+        font-size: 13px;
     }
 }
