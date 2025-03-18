@@ -104,10 +104,13 @@
         order: 3;
         width: 100%;
         margin-top: 10px;
+        display: flex;
+        justify-content: center;
     }
 
     .search-container {
-        width: 100%;
+        width: auto;
+        max-width: 80;
         margin: 0;
     }
 
@@ -117,6 +120,7 @@
 
     .search-input {
         width: 100%;
+        min-width: 150px;
     }
 
     .nav-links {
@@ -158,6 +162,9 @@
     .navbar.sticky {
         padding: 8px 0;
     }
+    .search-container {
+        max-width: 70%; /* Slightly narrower on smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -168,5 +175,8 @@
     .search-input {
         padding: 6px;
         font-size: 13px;
+    }
+    .search-container {
+        max-width: 85%; /* Adjust width on very small screens */
     }
 }
