@@ -216,9 +216,15 @@
     }
 }
 
+@media (max-width: 480px) {
+    .header {
+        padding-top: 120px;
+    }
+}
+
 @media (max-width: 768px) {
     .header {
-        padding-top: 80px;
+        padding-top: 100px;
     }
 
     .header-tagline {
