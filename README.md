@@ -41,4 +41,5 @@ premioapps
 
 ## Developer:
 Premioapps was developed by Neshacks, a technology innovation hub specializing in software development and system optimization solutions.
-The project was led by Nehemiah Kibet, a professional software developer whose portfolio can be viewed at [here](https://neshkibet.vercel.app).
+
+The project was designed and built by Nehemiah Kibet, a professional software developer whose portfolio can be viewed at [here](https://neshkibet.vercel.app).
