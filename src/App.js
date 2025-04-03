@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+//import { FaWhatsapp } from "react-icons/fa";
 import { ImSpinner8 } from "react-icons/im";
 import "./App.css";
 import APKCard from "./components/APKCard";
@@ -11,87 +11,118 @@ const apkData = [
   {
     id: 1,
     name: "WhatsApp",
-    description: "Chat and call with friends and family. Foud Whatsapp.",
+    description:
+      "v2.25.8.84\nChat and call with friends and family.\nFoud Whatsapp.",
     fileSize: "83.9 MB",
     fileId: "1R4QRtTjZql2q46-FV0Ir708sd6SU7_6b",
   },
   {
     id: 2,
-    name: "Spotube",
+    name: "Truecaller",
     description:
-      "Stream music and podcasts. A briiliant open-source alternative to Spotify.",
-    fileSize: "129.2 MB",
-    fileId: "1k6marDPrn_95qnvg_J83bXiFgfiVy63u",
+      "v15.7.6 \nMake and receive secure HD calls by blocking spam callers and messages.\nPremium unlocked!",
+    fileSize: "113.4 MB",
+    fileId: "1px7thRXpaZ1kM17w5EW-ZC_bJpzlGxvq",
   },
   {
     id: 3,
     name: "TikTok",
-    description: "Create and share short videos. Premium unlocked!",
+    description: "v39.3.5 \nCreate and share short videos.\nPremium unlocked!",
     fileSize: "222.9 MB",
-    fileId: "1_V5mu80NA0sIHqzJYP_nDgRABZo7isT0",
+    fileId: "10sItLEwDyMlUBF4qwm2GbQZuES2F3RM_",
   },
   {
     id: 4,
     name: "Instagram",
-    description: "Share photos and connect with friends. Optimized, no ADs!",
+    description:
+      "v22 \nShare photos and connect with friends.\nOptimized, no ADs!",
     fileSize: "88.4 MB",
-    fileId: "19vEC63pcoOynlim9-ziz4HIcDaxeq8-O",
+    fileId: "17-zacib3boEZAd4nfDmi--te7fnOjVPP",
   },
   {
     id: 5,
     name: "X (Twitter)",
-    description: "Stay updated with news and trends. Premium unlocked!",
-    fileSize: "153.1 MB",
-    fileId: "1QgxpBtNfgAOD_8KRZb0xAoUi3p5xtAKe",
+    description:
+      "v 10.86.0 \nStay updated with news and trends.\nPremium unlocked!",
+    fileSize: "159.1 MB",
+    fileId: "1mVcGVue01Rh2yml3JsxVjDTeIOHfd-Ef",
   },
   {
     id: 6,
     name: "WPS Office",
     description:
-      "Edit documents, spreadsheets, and presentations. Premium unlocked!",
-    fileSize: "193 MB",
-    fileId: "1ccNcB4b-DlO1SoEysd1IQjOuihTvYCyt",
+      "v18.16.1 \nEdit documents, spreadsheets, and presentations.\nPremium unlocked!",
+    fileSize: "275.6 MB",
+    fileId: "1rx0rcQubaSXbCw0gl8k37ZJMFPRPM6hA",
   },
   {
     id: 7,
     name: "Telegram",
-    description: "Secure messaging and file sharing. Premium unlocked!",
-    fileSize: "50.6 MB",
-    fileId: "",
+    description:
+      "v11.9.0 \nSecure messaging and file sharing.\nPremium unlocked!",
+    fileSize: "82.6 MB",
+    fileId: "1hIdrRjkbNsgcQrdi5MSkjM2DfuDIxhTq",
   },
   {
     id: 8,
     name: "Snapchat",
-    description: "Share moments with friends. Premium unlocked!",
+    description: "v13.35.0.46 \nShare moments with friends.\nPremium unlocked!",
     fileSize: "191 MB",
     fileId: "1sG7g_OgCFnYy-w0hqshAv0VAD3SMtM1Y",
   },
   {
     id: 9,
     name: "NewPipe",
-    description: "Lightweight YouTube client. Optimized",
+    description: "v0.27.6 \nLightweight YouTube client.\nOptimized",
     fileSize: "10.95 MB",
     fileId: "1fmN7higwPVieonrSGzl17SV39iYcVhet",
   },
   {
     id: 10,
-    name: "Netflix",
-    description: "Stream movies and TV shows. Netflix alternative.",
+    name: "Onstream",
+    description:
+      "v1.1.6 \nStream movies and TV shows for free.\nNetflix alternative.",
     fileSize: "17.5 MB",
     fileId: "1h3jnVTJQP6MPLwB0CmBUE_8Bc-vSDFI3",
   },
   {
     id: 11,
     name: "Shazam",
-    description: "Identify different genres of songs. Premium unlocked",
+    description:
+      "v15.16.0 \nIdentify different genres of songs.\nPremium unlocked",
     fileSize: "20.95 MB",
-    fileId: "1BmkpejxPYDz2vNlJDkNZ_-Cv_PJu1L3R",
+    fileId: "1aBCtbIMNQ2Z5JUZDHxUxje0k5CABJDij",
   },
   {
     id: 12,
     name: "HD Streamz",
-    description: "Stream a vast majority of Sports for free without ADs!",
+    description:
+      "v3.9.2-a-170 \nStream a vast majority of Sports for free.\n No ADs!",
     fileSize: "21.1 MB",
+    fileId: "1M6mOJat9hAs2vTibRTP8Av9LpoLfUMHw",
+  },
+  {
+    id: 13,
+    name: "Cricfy TV",
+    description:
+      "v5.0 \nStream a vast majority of Sports and Channels for free!\n Has popup ADs!",
+    fileSize: "15.9 MB",
+    fileId: "1oDXVimRkSaXuenpQfcGR0NAx3bJvYN1w",
+  },
+  {
+    id: 14,
+    name: "Adguard",
+    description:
+      "v4.10.4 \nProtect yourself from the dangers of the internet by blocking malware and trackers.\nPremium unlocked!",
+    fileSize: "60.5 MB",
+    fileId: "1L1qIotFilngbev4LN42fhnHKzDS9NZ_b",
+  },
+  {
+    id: 15,
+    name: "Solar VPN",
+    description:
+      "v4.10.1 \nMask your IP address location from trackers for free.\nNo ADs!",
+    fileSize: "13.1 MB",
     fileId: "1M6mOJat9hAs2vTibRTP8Av9LpoLfUMHw",
   },
 ];
