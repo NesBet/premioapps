@@ -386,14 +386,16 @@ function App() {
           the best apps for your needs.
         </p>
         <div>© 2025 NesHacks. All Rights Reserved.</div>
-        <a
-          href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-icon"
-        >
-          <FaWhatsapp size={30} color="green" />
-        </a>
+        <div>
+          <a
+            href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-icon"
+          >
+            <FaWhatsapp size={30} color="green" />
+          </a>
+        </div>
       </footer>
     </div>
   );
