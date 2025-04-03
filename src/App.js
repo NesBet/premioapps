@@ -11,119 +11,124 @@ const apkData = [
   {
     id: 1,
     name: "WhatsApp",
-    description:
-      "v2.25.8.84\nChat and call with friends and family.\nFoud Whatsapp.",
+    version: "v2.25.8.84 (Foud Whatsapp)",
+    description: "Chat and call with friends and family.",
     fileSize: "83.9 MB",
     fileId: "1R4QRtTjZql2q46-FV0Ir708sd6SU7_6b",
   },
   {
     id: 2,
     name: "Truecaller",
+    version: "v15.7.6 (Premium unlocked)",
     description:
-      "v15.7.6 \nMake and receive secure HD calls by blocking spam callers and messages.\nPremium unlocked!",
+      "Make and receive secure HD calls by blocking spam callers and messages.",
     fileSize: "113.4 MB",
     fileId: "1px7thRXpaZ1kM17w5EW-ZC_bJpzlGxvq",
   },
   {
     id: 3,
     name: "TikTok",
-    description: "v39.3.5 \nCreate and share short videos.\nPremium unlocked!",
+    version: "v39.3.5 (Premium unlocked)",
+    description: "Create and share short videos.",
     fileSize: "222.9 MB",
     fileId: "10sItLEwDyMlUBF4qwm2GbQZuES2F3RM_",
   },
   {
     id: 4,
     name: "Instagram",
-    description:
-      "v22 \nShare photos and connect with friends.\nOptimized, no ADs!",
+    version: "v22 (Optimized,no ADs!)",
+    description: "Share photos and connect with friends.",
     fileSize: "88.4 MB",
     fileId: "17-zacib3boEZAd4nfDmi--te7fnOjVPP",
   },
   {
     id: 5,
     name: "X (Twitter)",
-    description:
-      "v 10.86.0 \nStay updated with news and trends.\nPremium unlocked!",
+    version: "v10.86.0 (Premium unlocked)",
+    description: "Stay updated with news and trends. Grok AI is now available.",
     fileSize: "159.1 MB",
     fileId: "1mVcGVue01Rh2yml3JsxVjDTeIOHfd-Ef",
   },
   {
     id: 6,
     name: "WPS Office",
-    description:
-      "v18.16.1 \nEdit documents, spreadsheets, and presentations.\nPremium unlocked!",
+    version: "v18.16.1 (Premium unlocked)",
+    description: "Edit documents, spreadsheets, and presentations.",
     fileSize: "275.6 MB",
     fileId: "1rx0rcQubaSXbCw0gl8k37ZJMFPRPM6hA",
   },
   {
     id: 7,
     name: "Telegram",
-    description:
-      "v11.9.0 \nSecure messaging and file sharing.\nPremium unlocked!",
+    version: "v11.9.0 (Premium unlocked)",
+    description: "Secure messaging and file sharing.",
     fileSize: "82.6 MB",
     fileId: "1hIdrRjkbNsgcQrdi5MSkjM2DfuDIxhTq",
   },
   {
     id: 8,
     name: "Snapchat",
-    description: "v13.35.0.46 \nShare moments with friends.\nPremium unlocked!",
+    version: "v13.35.0.46 (Premium unlocked)",
+    description: "Share moments with friends.",
     fileSize: "191 MB",
     fileId: "1sG7g_OgCFnYy-w0hqshAv0VAD3SMtM1Y",
   },
   {
     id: 9,
     name: "NewPipe",
-    description: "v0.27.6 \nLightweight YouTube client.\nOptimized",
+    version: "v0.27.6 (Optimized, no ADs!)",
+    description: "Lightweight YouTube client.",
     fileSize: "10.95 MB",
     fileId: "1fmN7higwPVieonrSGzl17SV39iYcVhet",
   },
   {
     id: 10,
     name: "Onstream",
-    description:
-      "v1.1.6 \nStream movies and TV shows for free.\nNetflix alternative.",
+    version: "v1.1.6 (Netflix alternative)",
+    description: "Stream movies and TV shows for free.",
     fileSize: "17.5 MB",
     fileId: "1h3jnVTJQP6MPLwB0CmBUE_8Bc-vSDFI3",
   },
   {
     id: 11,
     name: "Shazam",
-    description:
-      "v15.16.0 \nIdentify different genres of songs.\nPremium unlocked",
+    version: "v15.16.0 (Premium unlocked)",
+    description: "Identify different genres of songs.",
     fileSize: "20.95 MB",
     fileId: "1aBCtbIMNQ2Z5JUZDHxUxje0k5CABJDij",
   },
   {
     id: 12,
     name: "HD Streamz",
-    description:
-      "v3.9.2-a-170 \nStream a vast majority of Sports for free.\n No ADs!",
+    version: "v3.9.2-a-170 (No ADs!)",
+    description: "Stream a vast majority of Sports for free.",
     fileSize: "21.1 MB",
     fileId: "1M6mOJat9hAs2vTibRTP8Av9LpoLfUMHw",
   },
   {
     id: 13,
     name: "Cricfy TV",
-    description:
-      "v5.0 \nStream a vast majority of Sports and Channels for free!\n Has popup ADs!",
+    version: "v5.0 (Additional streams)",
+    description: "Stream a vast majority of Sports and Channels for free!",
     fileSize: "15.9 MB",
     fileId: "1oDXVimRkSaXuenpQfcGR0NAx3bJvYN1w",
   },
   {
     id: 14,
     name: "Adguard",
+    version: "v4.10.4 (Premium unlocked)",
     description:
-      "v4.10.4 \nProtect yourself from the dangers of the internet by blocking malware and trackers.\nPremium unlocked!",
+      "Protect yourself from the dangers of the internet by blocking malware and trackers.",
     fileSize: "60.5 MB",
     fileId: "1L1qIotFilngbev4LN42fhnHKzDS9NZ_b",
   },
   {
     id: 15,
-    name: "Solar VPN",
-    description:
-      "v4.10.1 \nMask your IP address location from trackers for free.\nNo ADs!",
+    name: "SolarVPN",
+    version: "v4.10.1 (Premium unlocked)",
+    description: "Mask your IP address location from trackers for free.",
     fileSize: "13.1 MB",
-    fileId: "1M6mOJat9hAs2vTibRTP8Av9LpoLfUMHw",
+    fileId: "",
   },
 ];
 

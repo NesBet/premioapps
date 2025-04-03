@@ -17,6 +17,7 @@ import { FaMicrophone } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 import { SiAdguard } from "react-icons/si";
 import { FaSun } from "react-icons/fa";
+import { CgUnavailable } from "react-icons/cg";
 
 function APKCard({ apk, onDownload }) {
   // Map app names to React Icons
@@ -53,7 +54,7 @@ function APKCard({ apk, onDownload }) {
       case "solar vpn":
         return <FaSun size={48} />;
       default:
-        return null;
+        return <CgUnavailable size={48} />;
     }
   };
 
@@ -61,6 +62,7 @@ function APKCard({ apk, onDownload }) {
     <div className="card">
       <div className="icon">{getAppIcon(apk.name)}</div>
       <h3>{apk.name}</h3>
+      <p>{apk.version}</p>
       <p>{apk.description}</p>
       <p>File Size: {apk.fileSize}</p>
       <button className="download-button" onClick={() => onDownload(apk)}>
