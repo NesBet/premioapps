@@ -387,14 +387,14 @@ function App() {
         </p>
         <div>© 2025 NesHacks. All Rights Reserved.</div>
         <div>
-          <a
+          <p
             href="https://chat.whatsapp.com/BcWnInIGwoD9DQNUxISlGP"
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-icon"
           >
             <FaWhatsapp size={30} color="green" />
-          </a>
+          </p>
         </div>
       </footer>
     </div>
