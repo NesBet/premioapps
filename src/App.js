@@ -123,10 +123,10 @@ const apkData = [
   {
     id: 15,
     name: "SolarVPN",
-    version: "v4.10.1 (Premium unlocked)",
+    version: "v4.10.1",
     description: "Mask your IP address location from trackers for free.",
     fileSize: "13.1 MB",
-    fileId: "",
+    fileId: "10XH8CliUQ9MWeC7vcbkL2ECeq5XGLtWx",
   },
 ];
 
